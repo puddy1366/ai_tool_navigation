@@ -30,12 +30,9 @@ export function AboutSidebar() {
 
         {/* 个人信息 */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
-            产品狗，产品狗
+          <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
+            产品狗
           </h2>
-          <p className="text-[var(--color-text-secondary)] text-sm mb-3">
-            全栈工程师 / AI 爱好者
-          </p>
           <p className="text-[var(--color-text-tertiary)] text-sm leading-relaxed">
             热爱探索 AI 技术的前沿领域，致力于将 AI 融入日常工作，提升效率和创造力。
           </p>
