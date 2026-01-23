@@ -206,7 +206,7 @@ export default function Home() {
 function HeroSection() {
   return (
     <section
-      className="relative min-h-[400px] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[320px] flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage:
           'linear-gradient(135deg, #0A0E14 0%, #1A1E2E 50%, #0A0E14 100%)',
