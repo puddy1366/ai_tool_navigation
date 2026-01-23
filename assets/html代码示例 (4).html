@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 工具导航 - 探索无限可能</title>
+    <style>
+        :root {
+            --bg-color: #0f1117;
+            --card-bg: rgba(30, 34, 45, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(255, 255, 255, 0.12);
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            /* 强调色系 */
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(15, 17, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 头部区域 */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 搜索框 */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        /* 主内容网格 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 分类卡片容器 */
+        .category-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* 增加标题和列表之间的距离 */
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-icon {
+            width: 4px;
+            height: 24px;
+            border-radius: 2px;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* 工具列表 */
+        .tool-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* 这里控制每个工具卡片之间的垂直间距，设为 1rem (约16px) */
+        }
+
+        .tool-card {
+            display: block;
+            text-decoration: none;
+            /* 默认背景色稍微深一点，增加对比 */
+            background: rgba(0, 0, 0, 0.3); 
+            /* 默认边框更加明显 */
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            padding: 1.2rem; /* 增加内边距 */
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .tool-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .tool-name {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tool-desc {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 分类特定颜色 */
+        .cat-draw .category-icon { background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan); }
+        .cat-write .category-icon { background: var(--accent-purple); box-shadow: 0 0 10px var(--accent-purple); }
+        .cat-code .category-icon { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
+        .cat-learn .category-icon { background: var(--accent-pink); box-shadow: 0 0 10px var(--accent-pink); }
+        .cat-media .category-icon { background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green); }
+        .cat-office .category-icon { background: var(--accent-orange); box-shadow: 0 0 10px var(--accent-orange); }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .container { grid-template-columns: 1fr; padding: 0 1rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-cyan)"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+        </div>
+    </nav>
+
+    <!-- 头部 -->
+    <header class="hero">
+        <h1>探索 AI 的无限可能</h1>
+        <p>精选优质 AI 工具，助力你的创作与学习效率飞跃</p>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="搜索工具，例如：ChatGPT...">
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container">
+
+        <!-- 1. AI 绘画 -->
+        <section class="category-section cat-draw">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 绘画</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Midjourney</div>
+                    <div class="tool-desc">目前最强大的 AI 图像生成工具，艺术感极强</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Stable Diffusion</div>
+                    <div class="tool-desc">开源的 AI 绘画模型，本地部署可控性高</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">DALL·E 3</div>
+                    <div class="tool-desc">OpenAI 出品的图像生成 AI，理解语义能力强</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Adobe Firefly</div>
+                    <div class="tool-desc">Adobe 的创意生成式 AI 工具，集成于 PS 中</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. AI 写作 -->
+        <section class="category-section cat-write">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 写作</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">ChatGPT</div>
+                    <div class="tool-desc">最流行的 AI 对话助手，全能型选手</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Claude</div>
+                    <div class="tool-desc">Anthropic 开发的 AI 助手，长文本处理能力强</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">文心一言</div>
+                    <div class="tool-desc">百度的大语言模型，中文理解能力优秀</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">豆包</div>
+                    <div class="tool-desc">字节跳动的 AI 助手，语音交互体验好</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. AI 编程 -->
+        <section class="category-section cat-code">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 编程</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">GitHub Copilot</div>
+                    <div class="tool-desc">你的 AI 结对编程助手，自动补全代码</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Cursor</div>
+                    <div class="tool-desc">AI 驱动的代码编辑器，深度集成 GPT-4</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Replit</div>
+                    <div class="tool-desc">在线编程 IDE，内置 Ghostwriter AI 辅助</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Codeium</div>
+                    <div class="tool-desc">免费且强大的 AI 编码助手，支持多种 IDE</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. AI 学习 -->
+        <section class="category-section cat-learn">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 学习</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">DeepLearning.AI</div>
+                    <div class="tool-desc">吴恩达教授的顶级 AI 课程平台</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Hugging Face</div>
+                    <div class="tool-desc">AI 模型社区，机器学习界的 GitHub</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Kaggle</div>
+                    <div class="tool-desc">数据科学竞赛平台，海量数据集和 Notebook</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Papers With Code</div>
+                    <div class="tool-desc">连接论文与代码实现，紧跟学术前沿</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. AI 媒体 -->
+        <section class="category-section cat-media">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 媒体</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Suno</div>
+                    <div class="tool-desc">AI 音乐生成工具，一键创作完整歌曲</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Runway</div>
+                    <div class="tool-desc">专业的 AI 视频创作工具，影视级效果</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Pika</div>
+                    <div class="tool-desc">AI 视频生成平台，支持文本转视频</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">ElevenLabs</div>
+                    <div class="tool-desc">逼真的 AI 语音合成工具，支持声音克隆</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">HeyGen</div>
+                    <div class="tool-desc">AI 数字人视频生成，快速制作虚拟形象</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 6. AI 办公 -->
+        <section class="category-section cat-office">
+            <div class="category-header">
+                <div class="category-icon"></div>
+                <div class="category-title">AI 办公</div>
+            </div>
+            <div class="tool-list">
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Gamma</div>
+                    <div class="tool-desc">AI 一键生成精美 PPT，排版设计自动化</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Notion AI</div>
+                    <div class="tool-desc">笔记与文档的 AI 增强，自动总结与扩写</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Otter.ai</div>
+                    <div class="tool-desc">AI 会议记录助手，实时转录语音为文字</div>
+                </a>
+                <a href="#" class="tool-card">
+                    <div class="tool-name">Microsoft Copilot</div>
+                    <div class="tool-desc">集成于 Office 全家桶，Word/Excel 效率神器</div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // 搜索过滤功能
+        const searchInput = document.getElementById('searchInput');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            categorySections.forEach(section => {
+                let hasVisibleTools = false;
+                const tools = section.querySelectorAll('.tool-card');
+
+                tools.forEach(card => {
+                    const name = card.querySelector('.tool-name').textContent.toLowerCase();
+                    const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        hasVisibleTools = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // 如果该分类下没有匹配的工具，则隐藏整个分类
+                section.style.display = hasVisibleTools ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

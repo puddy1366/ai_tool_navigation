@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Navigation } from '@/components/navigation';
 
 export const metadata: Metadata = {
-  title: 'AI 工具导航 - 探索 AI 的无限可能',
+  title: 'AI 工具导航 - 探索无限可能',
   description: '精选优质 AI 工具，助力你的创作与学习',
 };
 
@@ -17,6 +17,7 @@ interface Tool {
 interface Category {
   id: string;
   title: string;
+  colorClass: string; // 分类颜色类
   tools: Tool[];
 }
 
@@ -25,6 +26,7 @@ const categories: Category[] = [
   {
     id: 'painting',
     title: 'AI 绘画',
+    colorClass: 'accent-cyan',
     tools: [
       {
         name: 'Midjourney',
@@ -51,6 +53,7 @@ const categories: Category[] = [
   {
     id: 'writing',
     title: 'AI 写作',
+    colorClass: 'accent-purple',
     tools: [
       {
         name: 'ChatGPT',
@@ -77,6 +80,7 @@ const categories: Category[] = [
   {
     id: 'coding',
     title: 'AI 编程',
+    colorClass: 'accent-blue',
     tools: [
       {
         name: 'GitHub Copilot',
@@ -103,6 +107,7 @@ const categories: Category[] = [
   {
     id: 'learning',
     title: 'AI 学习',
+    colorClass: 'accent-pink',
     tools: [
       {
         name: 'DeepLearning.AI',
@@ -129,6 +134,7 @@ const categories: Category[] = [
   {
     id: 'media',
     title: 'AI 媒体',
+    colorClass: 'accent-green',
     tools: [
       {
         name: 'Suno',
@@ -161,8 +167,17 @@ const categories: Category[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-      <Navigation categories={categories} />
+    <div
+      className="min-h-screen text-[var(--color-text-primary)]"
+      style={{
+        backgroundColor: 'var(--color-bg-primary)',
+        backgroundImage: `
+          radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+          radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%)
+        `,
+      }}
+    >
+      <Navigation />
       <main>
         <HeroSection />
         <CategoriesSection categories={categories} />
@@ -174,37 +189,37 @@ export default function Home() {
 // Hero 区域组件
 function HeroSection() {
   return (
-    <section
-      className="relative min-h-[500px] flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage:
-          'linear-gradient(135deg, #0A0E14 0%, #1A1E2E 50%, #0A0E14 100%)',
-      }}
-    >
-      {/* 背景装饰 */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[var(--color-accent-primary)] rounded-full blur-3xl opacity-10" />
-        <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-accent-secondary)] rounded-full blur-3xl opacity-10"
-          style={{ animationDelay: '2s' }}
-        />
-      </div>
-
-      {/* 主内容 */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-accent-primary)] via-white to-[var(--color-accent-secondary)]">
+    <section className="hero">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-extrabold mb-4 tracking-tight leading-tight">
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #94a3b8 100%)',
+            }}
+          >
             探索 AI 的无限可能
           </span>
         </h1>
-        <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
           精选优质 AI 工具，助力你的创作与学习
         </p>
-      </div>
 
-      {/* 底部装饰线条 */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-primary)] to-transparent opacity-50" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-secondary)] to-transparent opacity-30" style={{ marginTop: '1px' }} />
+        {/* 搜索框 */}
+        <div className="search-container max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="搜索 AI 工具..."
+            className="search-input w-full px-5 py-3 rounded-full outline-none transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--color-search-bg)',
+              border: '1px solid var(--color-border)',
+              color: 'var(--color-text-primary)',
+              fontSize: '1rem',
+            }}
+          />
+        </div>
+      </div>
     </section>
   );
 }
@@ -212,8 +227,8 @@ function HeroSection() {
 // 分类区域组件
 function CategoriesSection({ categories }: { categories: Category[] }) {
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    <section className="container max-w-6xl mx-auto px-4 pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}
@@ -227,24 +242,35 @@ function CategoryCard({ category }: { category: Category }) {
   return (
     <article
       id={category.id}
-      className="relative group bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 sm:p-8 transition-all duration-[var(--duration-normal)] hover:transform hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
+      className="category-section rounded-2xl p-6 transition-transform duration-300 flex flex-col gap-6"
+      style={{
+        backgroundColor: 'var(--color-bg-card)',
+        border: '1px solid var(--color-border)',
+      }}
     >
       {/* 分类标题 */}
-      <div className="relative pl-4 mb-6">
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)] rounded-full" />
-        <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+      <div className="category-header flex items-center gap-3">
+        <div
+          className={`category-icon w-1 rounded`}
+          style={{
+            height: '24px',
+            backgroundColor: `var(--accent-${category.colorClass})`,
+            boxShadow: `0 0 10px var(--accent-${category.colorClass})`,
+          }}
+        />
+        <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
           {category.title}
         </h2>
       </div>
 
       {/* 工具列表 */}
-      <div className="space-y-4">
+      <div className="tool-list flex flex-col gap-4">
         {category.tools.length > 0 ? (
           category.tools.map((tool) => (
             <ToolLink key={tool.name} tool={tool} />
           ))
         ) : (
-          <p className="text-[var(--color-text-tertiary)] text-center py-8">
+          <p className="text-[var(--color-text-secondary)] text-center py-8">
             暂无工具
           </p>
         )}
@@ -260,14 +286,46 @@ function ToolLink({ tool }: { tool: Tool }) {
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/tool block p-3 rounded-lg border border-[var(--color-border)] transition-all duration-[var(--duration-fast)] hover:transform hover:translate-x-1 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-tertiary)]"
+      className="tool-card block text-decoration-none rounded-xl transition-all duration-200"
+      style={{
+        backgroundColor: 'var(--color-bg-tool)',
+        border: '1px solid var(--color-border)',
+        padding: '1.2rem',
+      }}
     >
-      <h3 className="font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
-        {tool.name}
-      </h3>
-      <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2">
-        {tool.description}
-      </p>
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h3
+            className="font-semibold text-[var(--color-text-primary)] mb-2"
+            style={{ fontSize: '1rem' }}
+          >
+            {tool.name}
+          </h3>
+          <p
+            className="text-sm truncate"
+            style={{
+              color: 'var(--color-text-secondary)',
+              fontSize: '0.85rem',
+            }}
+          >
+            {tool.description}
+          </p>
+        </div>
+        <svg
+          className="w-4 h-4 flex-shrink-0 ml-2 opacity-50"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      </div>
     </a>
   );
 }
