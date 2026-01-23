@@ -36,7 +36,7 @@ export default function PrivacyPage() {
         }}
       />
 
-      <Navigation categories={[]} />
+      <Navigation />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
         <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8 animate-gradient-title">

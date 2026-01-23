@@ -227,7 +227,7 @@ export default function Home() {
         }}
       />
 
-      <Navigation categories={categories} />
+      <Navigation />
 
       <main className="flex flex-col lg:flex-row gap-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 pb-12">
         {/* 左侧主内容区 */}
