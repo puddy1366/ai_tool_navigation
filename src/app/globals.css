@@ -136,37 +136,20 @@ body {
   @apply font-sans;
 }
 
-/* AI 工具导航网站自定义 CSS 变量（参考设计） */
+/* AI 工具导航网站自定义 CSS 变量 */
 :root {
-  /* 背景色系 */
-  --color-bg-primary: #0f1117;
-  --color-bg-card: rgba(30, 34, 45, 0.6);
-  --color-bg-card-hover: rgba(255, 255, 255, 0.08);
-  --color-bg-tool: rgba(0, 0, 0, 0.3);
-  
-  /* 文本色系 */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #94a3b8;
-  
-  /* 边框色系 */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.2);
-  
-  /* 强调色系 */
-  --accent-blue: #3b82f6;
-  --accent-cyan: #06b6d4;
-  --accent-purple: #8b5cf6;
-  --accent-pink: #ec4899;
-  --accent-green: #10b981;
-  --accent-orange: #f59e0b;
-  
-  /* 导航栏背景 */
-  --color-nav-bg: rgba(15, 17, 23, 0.8);
-  
-  /* 搜索框背景 */
-  --color-search-bg: rgba(255, 255, 255, 0.05);
-  --color-search-bg-focus: rgba(255, 255, 255, 0.1);
-  
+  /* 颜色系统 */
+  --color-bg-primary: #0A0E14;
+  --color-bg-secondary: rgba(26, 32, 44, 0.8);
+  --color-bg-tertiary: rgba(0, 240, 255, 0.05);
+  --color-text-primary: #E0E0E0;
+  --color-text-secondary: #A0AEC0;
+  --color-text-tertiary: #718096;
+  --color-accent-primary: #00F0FF;
+  --color-accent-secondary: #6B48FF;
+  --color-border: rgba(0, 240, 255, 0.2);
+  --color-border-hover: rgba(0, 240, 255, 0.4);
+
   /* 间距系统（8px 基础倍数） */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -183,16 +166,14 @@ body {
   --z-modal: 500;
 
   /* 圆角系统 */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
   /* 阴影系统 */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 30px rgba(0, 240, 255, 0.15);
 
   /* 动画时长 */
   --duration-fast: 150ms;
@@ -201,41 +182,4 @@ body {
 
   /* 缓动函数 */
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Hero 区域样式 */
-.hero {
-  padding: 8rem 1rem 4rem;
-  text-align: center;
-}
-
-/* 搜索框样式 */
-.search-input {
-  transition: all 0.3s;
-}
-
-.search-input:focus {
-  background: var(--color-search-bg-focus);
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-}
-
-/* 分类卡片悬停效果 */
-.category-section:hover {
-  transform: translateY(-2px);
-}
-
-/* 工具卡片悬停效果 */
-.tool-card:hover {
-  background: var(--color-bg-card-hover);
-  transform: translateY(-2px);
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-hover);
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .hero {
-    padding: 6rem 1rem 3rem;
-  }
 }
