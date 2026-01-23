@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Navigation } from '@/components/navigation';
+import { ParticleBackground } from '@/components/particle-background';
 
 export const metadata: Metadata = {
   title: 'AI 工具导航 - 探索 AI 的无限可能',
@@ -208,6 +209,9 @@ export default function Home() {
           backgroundAttachment: 'fixed',
         }}
       />
+
+      {/* 粒子动画 */}
+      <ParticleBackground />
 
       {/* 全局深色遮罩 */}
       <div
