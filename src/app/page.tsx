@@ -197,7 +197,26 @@ const categories: Category[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+    <div className="relative min-h-screen">
+      {/* 全局背景图片 */}
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+
+      {/* 全局深色遮罩 */}
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          backgroundColor: 'rgba(10, 14, 20, 0.85)',
+        }}
+      />
+
       <Navigation categories={categories} />
       <main>
         <HeroSection />
@@ -210,22 +229,7 @@ export default function Home() {
 // Hero 区域组件
 function HeroSection() {
   return (
-    <section
-      className="relative min-h-[240px] flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: 'url(/hero-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* 深色遮罩 */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundColor: 'rgba(10, 14, 20, 0.75)',
-        }}
-      />
-
+    <section className="relative min-h-[240px] flex items-center justify-center overflow-hidden">
       {/* 背景装饰 */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-20 w-72 h-72 bg-[var(--color-accent-primary)] rounded-full blur-3xl opacity-10" />
