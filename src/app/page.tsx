@@ -213,10 +213,19 @@ function HeroSection() {
     <section
       className="relative min-h-[240px] flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage:
-          'linear-gradient(135deg, #0A0E14 0%, #1A1E2E 50%, #0A0E14 100%)',
+        backgroundImage: 'url(/hero-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
+      {/* 深色遮罩 */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: 'rgba(10, 14, 20, 0.75)',
+        }}
+      />
+
       {/* 背景装饰 */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-20 w-72 h-72 bg-[var(--color-accent-primary)] rounded-full blur-3xl opacity-10" />
