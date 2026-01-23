@@ -9,7 +9,7 @@ export function AboutSidebar() {
           <div className="relative">
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[var(--color-border)] shadow-[0_0_30px_rgba(0,240,255,0.3)]">
               <img
-                src="/avatar.jpg"
+                src="/avatar.svg"
                 alt="头像"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -17,7 +17,7 @@ export function AboutSidebar() {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.parentElement!.innerHTML = `
                     <div class="w-full h-full bg-gradient-to-br from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)] flex items-center justify-center">
-                      <span class="text-white text-4xl font-bold">AI</span>
+                      <span class="text-white text-4xl font-bold">PD</span>
                     </div>
                   `;
                 }}
@@ -31,13 +31,13 @@ export function AboutSidebar() {
         {/* 个人信息 */}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">
-            AI 开发者
+            产品狗，产品狗
           </h2>
           <p className="text-[var(--color-text-secondary)] text-sm mb-3">
             全栈工程师 / AI 爱好者
           </p>
           <p className="text-[var(--color-text-tertiary)] text-sm leading-relaxed">
-            热爱探索 AI 技术的前沿领域，致力于将 AI 融入日常开发，提升效率和创造力。
+            热爱探索 AI 技术的前沿领域，致力于将 AI 融入日常工作，提升效率和创造力。
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export function AboutSidebar() {
             <div className="text-xs text-[var(--color-text-secondary)]">分类</div>
           </div>
           <div className="text-center">
-            <div className="text-xl font-bold text-[var(--color-accent-primary)]">26</div>
+            <div className="text-xl font-bold text-[var(--color-accent-primary)]">27</div>
             <div className="text-xs text-[var(--color-text-secondary)]">工具</div>
           </div>
           <div className="text-center">
