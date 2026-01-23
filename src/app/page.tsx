@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Navigation } from '@/components/navigation';
 import { ParticleBackground } from '@/components/particle-background';
 import { DynamicGradientBackground } from '@/components/dynamic-gradient';
+import { AboutSidebar } from '@/components/about-sidebar';
+import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'AI 工具导航 - 探索 AI 的无限可能',
@@ -226,10 +228,19 @@ export default function Home() {
       />
 
       <Navigation categories={categories} />
-      <main>
-        <HeroSection />
-        <CategoriesSection categories={categories} />
+
+      <main className="flex flex-col lg:flex-row gap-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 pb-12">
+        {/* 左侧主内容区 */}
+        <div className="flex-1 min-w-0">
+          <HeroSection />
+          <CategoriesSection categories={categories} />
+        </div>
+
+        {/* 右侧边栏 */}
+        <AboutSidebar />
       </main>
+
+      <Footer />
     </div>
   );
 }
@@ -269,7 +280,7 @@ function HeroSection() {
 // 分类区域组件
 function CategoriesSection({ categories }: { categories: Category[] }) {
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
