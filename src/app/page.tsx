@@ -124,6 +124,11 @@ const categories: Category[] = [
         description: '论文与代码链接',
         url: 'https://paperswithcode.com/',
       },
+      {
+        name: 'Fast.ai',
+        description: '实用的深度学习课程',
+        url: 'https://www.fast.ai/',
+      },
     ],
   },
   {
