@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Navigation } from '@/components/navigation';
 import { ParticleBackground } from '@/components/particle-background';
+import { DynamicGradientBackground } from '@/components/dynamic-gradient';
 
 export const metadata: Metadata = {
   title: 'AI 工具导航 - 探索 AI 的无限可能',
@@ -213,6 +214,9 @@ export default function Home() {
       {/* 粒子动画 */}
       <ParticleBackground />
 
+      {/* 动态渐变背景 */}
+      <DynamicGradientBackground />
+
       {/* 全局深色遮罩 */}
       <div
         className="fixed inset-0 -z-10"
@@ -234,18 +238,18 @@ export default function Home() {
 function HeroSection() {
   return (
     <section className="relative min-h-[240px] flex items-center justify-center overflow-hidden">
-      {/* 背景装饰 */}
+      {/* 背景装饰 - 增强动态效果 */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[var(--color-accent-primary)] rounded-full blur-3xl opacity-10" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-[var(--color-accent-primary)] rounded-full blur-3xl opacity-10 animate-pulse" />
         <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-accent-secondary)] rounded-full blur-3xl opacity-10"
-          style={{ animationDelay: '2s' }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-accent-secondary)] rounded-full blur-3xl opacity-10 animate-pulse"
+          style={{ animationDelay: '1s' }}
         />
       </div>
 
       {/* 主内容 */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mt-16">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-gradient-title">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-accent-primary)] via-white to-[var(--color-accent-secondary)]">
             探索 AI 的无限可能
           </span>
@@ -255,9 +259,9 @@ function HeroSection() {
         </p>
       </div>
 
-      {/* 底部装饰线条 */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-primary)] to-transparent opacity-50" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-secondary)] to-transparent opacity-30" style={{ marginTop: '1px' }} />
+      {/* 底部装饰线条 - 动态效果 */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-primary)] to-transparent opacity-50 animate-pulse" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-secondary)] to-transparent opacity-30 animate-pulse" style={{ marginTop: '1px', animationDelay: '0.5s' }} />
     </section>
   );
 }
@@ -280,18 +284,25 @@ function CategoryCard({ category }: { category: Category }) {
   return (
     <article
       id={category.id}
-      className="relative group bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 sm:p-8 transition-all duration-[var(--duration-normal)] hover:transform hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
+      className="relative group bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 sm:p-8 overflow-hidden transition-all duration-[var(--duration-normal)] hover:transform hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
     >
+      {/* 流光边框效果 */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer bg-gradient-to-r from-transparent via-[rgba(0,240,255,0.1)] to-transparent" />
+
+      {/* 动态光晕 */}
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-[var(--color-accent-primary)] rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition-all duration-700 group-hover:scale-150" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[var(--color-accent-secondary)] rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition-all duration-700 group-hover:scale-150" />
+
       {/* 分类标题 */}
       <div className="relative pl-4 mb-6">
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)] rounded-full" />
-        <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)] rounded-full animate-pulse" />
+        <h2 className="text-2xl font-bold text-[var(--color-text-primary)] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--color-accent-primary)] group-hover:via-white group-hover:to-[var(--color-accent-secondary)] transition-all duration-300">
           {category.title}
         </h2>
       </div>
 
       {/* 工具列表 */}
-      <div className="space-y-4">
+      <div className="relative space-y-4">
         {category.tools.length > 0 ? (
           category.tools.map((tool) => (
             <ToolLink key={tool.name} tool={tool} />
@@ -313,12 +324,15 @@ function ToolLink({ tool }: { tool: Tool }) {
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/tool block p-3 rounded-lg border border-[var(--color-border)] transition-all duration-[var(--duration-fast)] hover:transform hover:translate-x-1 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-tertiary)]"
+      className="group/tool relative block p-3 rounded-lg border border-[var(--color-border)] transition-all duration-[var(--duration-fast)] hover:transform hover:translate-x-1 hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] overflow-hidden"
     >
-      <h3 className="font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
+      {/* 悬停光晕 */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0, 240, 255, 0.1)] to-transparent opacity-0 group-hover/tool:opacity-100 transition-opacity duration-300 transform -translate-x-full group-hover/tool:translate-x-full" />
+
+      <h3 className="relative z-10 font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
         {tool.name}
       </h3>
-      <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2">
+      <p className="relative z-10 text-sm text-[var(--color-text-secondary)] line-clamp-2 group-hover/tool:text-[var(--color-text-primary)] transition-colors">
         {tool.description}
       </p>
     </a>
