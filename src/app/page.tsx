@@ -157,6 +157,37 @@ const categories: Category[] = [
       },
     ],
   },
+  {
+    id: 'office',
+    title: 'AI 办公',
+    tools: [
+      {
+        name: 'Notion AI',
+        description: '智能笔记和知识管理工具',
+        url: 'https://www.notion.so/',
+      },
+      {
+        name: 'Gamma',
+        description: 'AI 幻灯片和文档生成',
+        url: 'https://gamma.app/',
+      },
+      {
+        name: 'Tome',
+        description: 'AI 演示文稿创建工具',
+        url: 'https://tome.app/',
+      },
+      {
+        name: 'Canva',
+        description: 'AI 设计和创意工具',
+        url: 'https://www.canva.com/',
+      },
+      {
+        name: 'ChatDOC',
+        description: 'AI 文档阅读和智能问答',
+        url: 'https://chatdoc.com/',
+      },
+    ],
+  },
 ];
 
 export default function Home() {
