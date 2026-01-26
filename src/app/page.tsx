@@ -340,12 +340,29 @@ function ToolLink({ tool }: { tool: Tool }) {
       {/* 悬停光晕 */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0, 240, 255, 0.1)] to-transparent opacity-0 group-hover/tool:opacity-100 transition-opacity duration-300 transform -translate-x-full group-hover/tool:translate-x-full" />
 
-      <h3 className="relative z-10 font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
-        {tool.name}
-      </h3>
-      <p className="relative z-10 text-sm text-[var(--color-text-secondary)] line-clamp-2 group-hover/tool:text-[var(--color-text-primary)] transition-colors">
-        {tool.description}
-      </p>
+      <div className="relative z-10 flex items-start gap-3">
+        <svg
+          className="w-5 h-5 text-[var(--color-accent-primary)] mt-0.5 flex-shrink-0 group-hover/tool:scale-110 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        </svg>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
+            {tool.name}
+          </h3>
+          <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2 group-hover/tool:text-[var(--color-text-primary)] transition-colors">
+            {tool.description}
+          </p>
+        </div>
+      </div>
     </a>
   );
 }
