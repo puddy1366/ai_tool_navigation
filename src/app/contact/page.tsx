@@ -54,7 +54,7 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:puddy1366@gmail.com"
                 className="flex items-center gap-4 p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
               >
                 <div className="w-12 h-12 rounded-lg bg-[var(--color-bg-tertiary)] flex items-center justify-center group-hover:bg-[var(--color-accent-primary)] transition-colors">
@@ -77,13 +77,13 @@ export default function ContactPage() {
                     Email
                   </div>
                   <div className="text-lg font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
-                    your-email@example.com
+                    puddy1366@gmail.com
                   </div>
                 </div>
               </a>
 
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/puddy1366"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
@@ -106,13 +106,13 @@ export default function ContactPage() {
                     GitHub
                   </div>
                   <div className="text-lg font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
-                    @yourusername
+                    @puddy1366
                   </div>
                 </div>
               </a>
 
               <a
-                href="https://twitter.com/yourusername"
+                href="https://twitter.com/puddy1366"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
@@ -131,7 +131,7 @@ export default function ContactPage() {
                     X (Twitter)
                   </div>
                   <div className="text-lg font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
-                    @yourusername
+                    @puddy1366
                   </div>
                 </div>
               </a>

@@ -74,7 +74,7 @@ export function AboutSidebar() {
           </h3>
           <div className="space-y-3">
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:puddy1366@gmail.com"
               className="flex items-center gap-3 p-3 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
             >
               <div className="w-10 h-10 rounded-lg bg-[var(--color-bg-tertiary)] flex items-center justify-center group-hover:bg-[var(--color-accent-primary)] transition-colors">
@@ -97,13 +97,13 @@ export function AboutSidebar() {
                   Email
                 </div>
                 <div className="text-xs text-[var(--color-text-secondary)]">
-                  your-email@example.com
+                  puddy1366@gmail.com
                 </div>
               </div>
             </a>
 
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/puddy1366"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
@@ -126,13 +126,13 @@ export function AboutSidebar() {
                   GitHub
                 </div>
                 <div className="text-xs text-[var(--color-text-secondary)]">
-                  @yourusername
+                  @puddy1366
                 </div>
               </div>
             </a>
 
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/puddy1366"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-bg-tertiary)] transition-all duration-200 group"
@@ -151,7 +151,7 @@ export function AboutSidebar() {
                   X (Twitter)
                 </div>
                 <div className="text-xs text-[var(--color-text-secondary)]">
-                  @yourusername
+                  @puddy1366
                 </div>
               </div>
             </a>

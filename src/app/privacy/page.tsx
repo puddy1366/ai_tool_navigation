@@ -159,7 +159,7 @@ export default function PrivacyPage() {
                 如果您对本隐私政策有任何疑问，请通过以下方式联系我们：
               </p>
               <div className="mt-3">
-                <p>📧 Email: your-email@example.com</p>
+                <p>📧 Email: puddy1366@gmail.com</p>
               </div>
             </section>
           </div>

@@ -90,7 +90,7 @@ export default function AboutPage() {
                 如果你有任何建议、反馈或合作意向，欢迎通过以下方式联系我们：
               </p>
               <div className="mt-4 space-y-2">
-                <p>📧 Email: your-email@example.com</p>
+                <p>📧 Email: puddy1366@gmail.com</p>
                 <p>💬 微信: your-wechat-id</p>
               </div>
             </div>
