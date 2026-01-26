@@ -4,6 +4,35 @@ import { ParticleBackground } from '@/components/particle-background';
 import { DynamicGradientBackground } from '@/components/dynamic-gradient';
 import { AboutSidebar } from '@/components/about-sidebar';
 import { Footer } from '@/components/footer';
+import {
+  Image as ImageIcon,
+  Palette,
+  Sparkles,
+  Wand2,
+  Flame,
+  MessageSquare,
+  MessageSquareQuote,
+  PenTool,
+  FileText,
+  Code,
+  Terminal,
+  GitBranch,
+  Zap,
+  Brain,
+  Heart,
+  BarChart,
+  FileCode,
+  Music,
+  Video,
+  Film,
+  Mic,
+  User,
+  Layout,
+  Presentation,
+  LayoutList,
+  Layers,
+  ScanText,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'AI 工具导航 - 探索 AI 的无限可能',
@@ -15,6 +44,7 @@ interface Tool {
   name: string;
   description: string;
   url: string;
+  icon: React.ReactNode;
 }
 
 // 分类数据类型
@@ -34,21 +64,25 @@ const categories: Category[] = [
         name: 'Midjourney',
         description: '强大的 AI 图像生成工具',
         url: 'https://www.midjourney.com/',
+        icon: <ImageIcon className="w-5 h-5" />,
       },
       {
         name: 'Stable Diffusion',
         description: '开源的 AI 绘画模型',
         url: 'https://stability.ai/',
+        icon: <Sparkles className="w-5 h-5" />,
       },
       {
         name: 'DALL·E 3',
         description: 'OpenAI 的图像生成 AI',
         url: 'https://openai.com/dall-e-3',
+        icon: <Wand2 className="w-5 h-5" />,
       },
       {
         name: 'Adobe Firefly',
         description: 'Adobe 的创意 AI 工具',
         url: 'https://www.adobe.com/products/firefly.html',
+        icon: <Flame className="w-5 h-5" />,
       },
     ],
   },
@@ -60,21 +94,25 @@ const categories: Category[] = [
         name: 'ChatGPT',
         description: '最流行的 AI 对话助手',
         url: 'https://chat.openai.com/',
+        icon: <MessageSquare className="w-5 h-5" />,
       },
       {
         name: 'Claude',
         description: 'Anthropic 的 AI 助手',
         url: 'https://claude.ai/',
+        icon: <MessageSquareQuote className="w-5 h-5" />,
       },
       {
         name: '文心一言',
         description: '百度的大语言模型',
         url: 'https://yiyan.baidu.com/',
+        icon: <PenTool className="w-5 h-5" />,
       },
       {
         name: '豆包',
         description: '字节跳动的 AI 助手',
         url: 'https://www.doubao.com/',
+        icon: <FileText className="w-5 h-5" />,
       },
     ],
   },
@@ -86,21 +124,25 @@ const categories: Category[] = [
         name: 'GitHub Copilot',
         description: 'AI 代码助手',
         url: 'https://github.com/features/copilot',
+        icon: <Code className="w-5 h-5" />,
       },
       {
         name: 'Cursor',
         description: 'AI 驱动的代码编辑器',
         url: 'https://cursor.sh/',
+        icon: <Terminal className="w-5 h-5" />,
       },
       {
         name: 'Replit',
         description: '在线编程平台',
         url: 'https://replit.com/',
+        icon: <GitBranch className="w-5 h-5" />,
       },
       {
         name: 'Codeium',
         description: '免费的 AI 编码助手',
         url: 'https://codeium.com/',
+        icon: <Zap className="w-5 h-5" />,
       },
     ],
   },
@@ -112,26 +154,31 @@ const categories: Category[] = [
         name: 'DeepLearning.AI',
         description: '吴恩达的 AI 课程',
         url: 'https://www.deeplearning.ai/',
+        icon: <Brain className="w-5 h-5" />,
       },
       {
         name: 'Hugging Face',
         description: 'AI 模型社区',
         url: 'https://huggingface.co/',
+        icon: <Heart className="w-5 h-5" />,
       },
       {
         name: 'Kaggle',
         description: '数据科学平台',
         url: 'https://www.kaggle.com/',
+        icon: <BarChart className="w-5 h-5" />,
       },
       {
         name: 'Papers With Code',
         description: '论文与代码链接',
         url: 'https://paperswithcode.com/',
+        icon: <FileCode className="w-5 h-5" />,
       },
       {
         name: 'Fast.ai',
         description: '实用的深度学习课程',
         url: 'https://www.fast.ai/',
+        icon: <Zap className="w-5 h-5" />,
       },
     ],
   },
@@ -143,26 +190,31 @@ const categories: Category[] = [
         name: 'Suno',
         description: 'AI 音乐生成工具',
         url: 'https://suno.com/',
+        icon: <Music className="w-5 h-5" />,
       },
       {
         name: 'Runway',
         description: 'AI 视频创作工具',
         url: 'https://runwayml.com/',
+        icon: <Video className="w-5 h-5" />,
       },
       {
         name: 'Pika',
         description: 'AI 视频生成平台',
         url: 'https://pika.art/',
+        icon: <Film className="w-5 h-5" />,
       },
       {
         name: 'ElevenLabs',
         description: 'AI 语音合成工具',
         url: 'https://elevenlabs.io/',
+        icon: <Mic className="w-5 h-5" />,
       },
       {
         name: 'HeyGen',
         description: 'AI 数字人视频生成',
         url: 'https://www.heygen.com/',
+        icon: <User className="w-5 h-5" />,
       },
     ],
   },
@@ -174,26 +226,31 @@ const categories: Category[] = [
         name: 'Notion AI',
         description: '智能笔记和知识管理工具',
         url: 'https://www.notion.so/',
+        icon: <Layout className="w-5 h-5" />,
       },
       {
         name: 'Gamma',
         description: 'AI 幻灯片和文档生成',
         url: 'https://gamma.app/',
+        icon: <Presentation className="w-5 h-5" />,
       },
       {
         name: 'Tome',
         description: 'AI 演示文稿创建工具',
         url: 'https://tome.app/',
+        icon: <LayoutList className="w-5 h-5" />,
       },
       {
         name: 'Canva',
         description: 'AI 设计和创意工具',
         url: 'https://www.canva.com/',
+        icon: <Layers className="w-5 h-5" />,
       },
       {
         name: 'ChatDOC',
         description: 'AI 文档阅读和智能问答',
         url: 'https://chatdoc.com/',
+        icon: <ScanText className="w-5 h-5" />,
       },
     ],
   },
@@ -341,19 +398,9 @@ function ToolLink({ tool }: { tool: Tool }) {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0, 240, 255, 0.1)] to-transparent opacity-0 group-hover/tool:opacity-100 transition-opacity duration-300 transform -translate-x-full group-hover/tool:translate-x-full" />
 
       <div className="relative z-10 flex items-start gap-3">
-        <svg
-          className="w-5 h-5 text-[var(--color-accent-primary)] mt-0.5 flex-shrink-0 group-hover/tool:scale-110 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
+        <div className="text-[var(--color-accent-primary)] mt-0.5 flex-shrink-0 group-hover/tool:scale-110 transition-transform">
+          {tool.icon}
+        </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold text-[var(--color-text-primary)] mb-1 group-hover/tool:text-[var(--color-accent-primary)] transition-colors">
             {tool.name}
