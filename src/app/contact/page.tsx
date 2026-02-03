@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation';
 import { ParticleBackground } from '@/components/particle-background';
 import { DynamicGradientBackground } from '@/components/dynamic-gradient';
 import { Footer } from '@/components/footer';
+import { ChatButton } from '@/components/chat-button';
 
 export const metadata = {
   title: '联系我们 - AI 工具导航',
@@ -162,6 +163,7 @@ export default function ContactPage() {
       </main>
 
       <Footer />
+      <ChatButton />
     </div>
   );
 }

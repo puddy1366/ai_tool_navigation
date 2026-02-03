@@ -4,6 +4,7 @@ import { ParticleBackground } from '@/components/particle-background';
 import { DynamicGradientBackground } from '@/components/dynamic-gradient';
 import { AboutSidebar } from '@/components/about-sidebar';
 import { Footer } from '@/components/footer';
+import { ChatButton } from '@/components/chat-button';
 import {
   Image as ImageIcon,
   Palette,
@@ -298,6 +299,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <ChatButton />
     </div>
   );
 }

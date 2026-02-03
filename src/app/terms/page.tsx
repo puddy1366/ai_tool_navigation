@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation';
 import { ParticleBackground } from '@/components/particle-background';
 import { DynamicGradientBackground } from '@/components/dynamic-gradient';
 import { Footer } from '@/components/footer';
+import { ChatButton } from '@/components/chat-button';
 
 export const metadata = {
   title: '使用条款 - AI 工具导航',
@@ -182,6 +183,7 @@ export default function TermsPage() {
       </main>
 
       <Footer />
+      <ChatButton />
     </div>
   );
 }
