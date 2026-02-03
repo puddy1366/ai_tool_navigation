@@ -22,7 +22,7 @@ export function ChatButton() {
         <>
           {/* 遮罩层 */}
           <div
-            className="fixed inset-0 z-[var(--z-modal-backdrop)] bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+            className="fixed inset-0 z-[var(--z-modal-backdrop)] bg-black/20 backdrop-blur-[2px] transition-opacity duration-300"
             onClick={() => setIsOpen(false)}
           />
 
